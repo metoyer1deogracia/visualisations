@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #4EC9B0;
+            --background-color: #B3CEE2;
+            --text-color: #1E2A38;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sora', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.95);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 900;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .nav-button {
+            font-family: 'Sora', sans-serif;
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .nav-button.active {
+            background: var(--secondary-color);
+        }
+        
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        
+        .page-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-container.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        .analytics-card {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .metric-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .metric-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .metric-trend {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .visual-content iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .opportunity {
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .amount {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .easy { color: #388e3c; }
+        .medium { color: #f57c00; }
+        .hard { color: #d32f2f; }
+
+        @media (max-width: 768px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .metric-container {
+                grid-template-columns: 1fr;
+            }
+
+            .visual-content iframe {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <button class="nav-button" onclick="showPage('service_hierarchy.html', this)">Service Architecture</button>
+        <button class="nav-button" onclick="showPage('cost_analysis.html', this)">Cost Analysis</button>
+        <button class="nav-button" onclick="showPage('subsidies_analysis.html', this)">Subsidies Analysis</button>
+        <button class="nav-button" onclick="showPage('roadmap.html', this)">Geographic Roadmap</button>
+        <button class="nav-button" onclick="showPage('terms_and_conditions', this)">Conditions Générales</button>
+    </nav>
+
+    <img>
+    alt="Logo" 
+         class="logo"
+         title="Dashboard Analytics">
+
+    <div class="content">
+        <div class="page-container" id="service_hierarchy.html">
+            <div class="analytics-card">
+                <h2>Service Architecture</h2>
+                <p>Service Hierarchy and Dependencies</p>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-layer-group"></i>
+                            <h3>Pricing Tiers</h3>
+                        </div>
+                        <div class="metric-value">3 Tiers</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +5%
+                            </span>
+                        </div>
+                        <div class="metric-source">Source : <a href="https://www.marketingprofs.com" target="_blank">MarketingProfs</a></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Seasonal Variation</h3>
+                        </div>
+                        <div class="metric-value">+45%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +12%
+                            </span>
+                        </div>
+                        <div class="metric-source">Source : <a href="https://www.statista.com" target="_blank">Statista</a></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Customer Segments</h3>
+                        </div>
+                        <div class="metric-value">5 Segments</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +8%
+                            </span>
+                        </div>
+                        <div class="metric-source">Source : <a href="https://www.nielsen.com" target="_blank">Nielsen</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="analytics-card">
+                <h3>Analyse Architecturale des Services</h3>
+                
+                <p>Analyse multi-niveaux des services avec impact tarifaire saisonnier</p>
+                
+                <div class="section">
+                    <h4>Structure Actuelle</h4>
+                    <ul>
+                        <li>Services Core: <span class="data-highlight">8 services</span></li>
+                        <li>Services Premium: <span class="data-highlight">12 services</span></li>
+                        <li>Services Enterprise: <span class="data-highlight">5 services</span></li>
+                    </ul>
+                </div>
+
+                <div class="tech-stack">
+                    <strong>Métriques Clés:</strong>
+                    <ul>
+                        <li>Élasticité des prix par niveau</li>
+                        <li>Modèles de demande saisonnière</li>
+                        <li>Dépendances inter-services</li>
+                    </ul>
+                </div>
+
+                <div class="visual-content">
+                    <h4>Hiérarchie des Services</h4>
+                    <iframe src="html_viz/service_hierarchy.html" 
+                            style="width:100%; height:1200px; border:none;">
+                    </iframe>
+                </div>
+
+                <div class="section">
+                    <h4>Performances</h4>
+                    <ul>
+                        <li>Taux d'adoption: <span class="data-highlight">78%</span></li>
+                        <li>Satisfaction client: <span class="data-highlight">92%</span></li>
+                        <li>Taux de rétention: <span class="data-highlight">85%</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="visual-content">
+                <iframe src="html_viz/service_hierarchy.html" style="width:100%; height:600px; border:none; border-radius:8px;"></iframe>
+            </div>
+        </div>
+
+        <div class="page-container" id="cost_analysis.html">
+            <div class="analytics-card">
+                <h2>Cost Analysis</h2>
+                <p>Financial Flux and Cost Hierarchy Analysis</p>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>Cost Efficiency</h3>
+                        </div>
+                        <div class="metric-value">88%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +3%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-chart-area"></i>
+                            <h3>Expense Trends</h3>
+                        </div>
+                        <div class="metric-value">+5%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: red">
+                                ↓ -1%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h3>Investment Returns</h3>
+                        </div>
+                        <div class="metric-value">12%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +2%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="analytics-card">
+                <h3>Prévision de la Structure Financière</h3>
+                
+                <div class="section">
+                    <h4>Structure Prévisionnelle des Coûts</h4>
+                    <ul>
+                        <li>Coûts Fixes: <span class="data-highlight">45%</span></li>
+                        <li>Coûts Variables: <span class="data-highlight">35%</span></li>
+                        <li>Investissements R&D: <span class="data-highlight">20%</span></li>
+                    </ul>
+                </div>
+
+                <div class="visual-content">
+                    <h4>Projection des Flux Financiers</h4>
+                    <iframe src="html_viz/flux_financiers_enhanced.html" style="width:100%; height:800px; border:none;"></iframe>
+                </div>
+
+                <div class="analysis-section">
+                    <h1>Prévisions et Points Forts - Novembre 2024</h1>
+
+                    <h2>🌟 Points Positifs Anticipés</h2>
+                    
+                    <h3>1. Nos Avantages Fiscaux Projetés</h3>
+                    <ul>
+                        <li class="positive-point">Le statut JEI nous apportera 20 000€ d'économies sur les charges sociales</li>
+                        <li class="positive-point">Nous bénéficierons d'allègements sociaux générant environ 4 700€ d'économies</li>
+                        <li class="positive-point">Les exonérations apprentissage nous feront gagner 3 333€</li>
+                    </ul>
+
+                    <h3>2. Nos Investissements Planifiés</h3>
+                    <ul>
+                        <li class="positive-point">Notre équipement professionnel inclura le DJI Ronin 4D-8K</li>
+                        <li class="positive-point">L'infrastructure tech sera basée sur Apple Silicon</li>
+                        <li class="positive-point">Le matériel sera éligible aux amortissements accélérés</li>
+                    </ul>
+
+                    <h3>3. Notre Gestion Financière Prévisionnelle</h3>
+                    <ul>
+                        <li class="positive-point">Nous récupérerons la TVA sur la majorité des investissements</li>
+                        <li class="positive-point">Les modes de paiement seront diversifiés</li>
+                        <li class="positive-point">Le suivi par centres de coûts sera précis</li>
+                    </ul>
+                </div>
+
+                <div class="visual-content">
+                    <h4>Projection de la Répartition des Coûts</h4>
+                    <iframe src="html_viz/cost_hierarchy.html" style="width:100%; height:800px; border:none;"></iframe>
+                </div>
+
+                <div class="highlight">
+                    <h4>Axes d'Optimisation Prévus</h4>
+                    <ul>
+                        <li>Automatisation: nous réduirons de <span class="amount">15% les coûts opérationnels</span></li>
+                        <li>Économies d'échelle: nous atteindrons <span class="amount">+25% d'efficacité</span></li>
+                    </ul>
+                </div>
+
+                <!-- Suite du contenu de l'analyse des coûts -->
+            </div>
+        </div>
+
+        <div class="page-container" id="subsidies_analysis.html">
+            <div class="analytics-card">
+                <h2>Subsidies Analysis</h2>
+                <p>Analysis of Available Subsidies and Grants</p>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <h3>Subsidy Potential</h3>
+                        </div>
+                        <div class="metric-value">€1M+</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +10%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-thumbs-up"></i>
+                            <h3>Application Success Rate</h3>
+                        </div>
+                        <div class="metric-value">75%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +5%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Funding Timeline</h3>
+                        </div>
+                        <div class="metric-value">3-12 months</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: red">
+                                ↓ -1 month
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <div class="section">
+                    <h1>Analyse des Subventions et Aides Disponibles</h1>
+
+                    <h2>1. Dispositifs Majeurs Immédiats</h2>
+                    <div class="highlight">
+                        <h3>Statut JEI (Jeune Entreprise Innovante)</h3>
+                        <ul>
+                            <li>Exonération sociale : <span class="amount">181 388€</span></li>
+                            <li>Exonération fiscale : <span class="amount">53 419€</span></li>
+                            <li>Exonération CFE/CVAE : <span class="amount">12 000€</span></li>
+                            <li class="easy">Difficulté : Moyenne | Délai : 3 mois</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-content">
+                        <h4>Subventions Principales</h4>
+                        <iframe src="html_viz/subsidies_heatmap_Code APE_Source Principale.html" style="width:100%; height:800px; border:none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="roadmap.html">
+            <div class="analytics-card">
+                <h2>Geographic Roadmap</h2>
+                <p>Development Roadmap and Expansion Plans</p>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>Expansion Phases</h3>
+                        </div>
+                        <div class="metric-value">3 Phases</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ On Track
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-chart-pie"></i>
+                            <h3>Market Potential</h3>
+                        </div>
+                        <div class="metric-value">€3B</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +15%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Roi Expectations</h3>
+                        </div>
+                        <div class="metric-value">60%</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ +10%
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analytics-card">
+                <div class="visual-content">
+                    <h4>Geographic Distribution Strategy 2024-2026</h4>
+                    <iframe src="html_viz/roadmap.html" style="width:100%; height:800px; border:none;"></iframe>
+                </div>
+            </div>
+        </div>
+
+            <div class="page-container" id="terms_and_conditions">
+                <div class="analytics-card">
+                    <h2>Conditions Générales de Vente</h2>
+                    <p>Intégrant les aspects fiscaux conformément aux dispositions légales en vigueur.</p>
+                    <div class="section">
+                        <h3>Prestations et Plateforme</h3>
+                        <p>
+                            Nos services et notre plateforme offrent des avantages stratégiques pour votre entreprise. 
+                            Les dépenses liées à nos prestations peuvent être considérées comme des investissements.
+                        </p>
+                        <h3>Traitement Fiscal</h3>
+                        <ul>
+                            <li>
+                                <strong>Charges Déductibles :</strong> Conformément à l'article 39, alinéa 1 du Code Général des Impôts (CGI), les dépenses engagées dans l'intérêt de l'exploitation sont déductibles du résultat imposable.
+                            </li>
+                            <li>
+                                <strong>Actifs Immobilisés :</strong> La plateforme et les logiciels fournis peuvent être inscrits à l'actif du bilan en tant qu'immobilisations incorporelles, selon l'article 38 quinquies de l'annexe III et l'article 52 de l'annexe II du CGI.
+                            </li>
+                            <li>
+                                <strong>Amortissement :</strong> Ces actifs peuvent faire l'objet d'un amortissement sur plusieurs années, réduisant ainsi l'assiette de l'impôt futur tout en enrichissant le patrimoine de l'entreprise.
+                            </li>
+                        </ul>
+                        <h3>Protection Intellectuelle</h3>
+                        <p>
+                            Les logiciels et plateformes SaaS fournis sont protégés par l'article L112-2 du Code de la Propriété Intellectuelle en tant qu'œuvres de l'esprit.
+                        </p>
+                        <h3>Conditions d'Utilisation</h3>
+                        <p>
+                            La licence d'accès à la plateforme est incluse dans nos prestations, avec une tarification modulable en fonction des besoins spécifiques.
+                        </p>
+                        <h3>Sources des Données</h3>
+                        <p>
+                            Les informations présentées dans ce document sont basées sur des données provenant de sources fiables :
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="https://www.gartner.com/en/research" target="_blank">Rapports Gartner</a>
+                            </li>
+                            <li>
+                                <a href="https://www.insee.fr/fr/statistiques" target="_blank">Statistiques INSEE</a>
+                            </li>
+                            <li>
+                                <a href="https://www.data.gouv.fr" target="_blank">Data.gouv.fr</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function showPage(pageId, btn) {
+                document.querySelectorAll('.page-container').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.nav-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                document.getElementById(pageId).classList.add('active');
+                btn.classList.add('active');
+
+                trackPageView(btn.textContent);
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const firstButton = document.querySelector('.nav-button');
+                const firstPage = document.querySelector('.page-container');
+                if (firstButton && firstPage) {
+                    firstButton.classList.add('active');
+                    firstPage.classList.add('active');
+                }
+            });
+            
+            function trackPageView(pageName) {
+                console.log(`Page viewed: ${pageName}`);
+                // Add real analytics tracking here
+            }
+        </script>
+    </body>
+</html>
