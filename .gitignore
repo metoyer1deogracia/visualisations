@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+prvsnl_cmptbl/html_viz/
+prvsnl_cmptbl/cleaned_final/
