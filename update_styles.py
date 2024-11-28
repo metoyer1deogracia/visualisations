@@ -1,4 +1,8 @@
-/* Variables Globales */
+import os
+from pathlib import Path
+
+def create_css_content():
+    return """/* Variables Globales */
 :root {
     --primary-dark: #1e293b;
     --primary-light: #f8fafc;
@@ -173,3 +177,31 @@ body {
     border-left: 4px solid #818cf8;
     padding-left: 1rem;
 }
+"""
+
+def update_css_file():
+    css_dir = Path('assets/css')
+    css_dir.mkdir(parents=True, exist_ok=True)
+    
+    css_file = css_dir / 'styles.css'
+    with open(css_file, 'w', encoding='utf-8') as f:
+        f.write(create_css_content())
+    print(f"✅ Fichier CSS mis à jour : {css_file}")
+
+def verify_html_files():
+    """Vérifie que tous les fichiers HTML ont le bon lien CSS"""
+    for html_file in Path('.').rglob('*.html'):
+        with open(html_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        if '<link rel="stylesheet" href="/visualisations/assets/css/styles.css">' not in content:
+            print(f"⚠️ Attention : {html_file} pourrait avoir un mauvais lien CSS")
+
+def main():
+    print("🎨 Mise à jour des styles...")
+    update_css_file()
+    verify_html_files()
+    print("\n✨ Styles mis à jour avec succès !")
+
+if __name__ == "__main__":
+    main()
