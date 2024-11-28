@@ -1,44 +1,58 @@
 /* Variables globales */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
-    --light-bg: #f8f9fa;
-    --dark-bg: #343a40;
+    --primary-bg: #1e293b;      /* Fond de navigation sombre */
+    --secondary-bg: #f8fafc;    /* Fond clair */
+    --accent-blue: #3b82f6;     /* Bleu accent */
+    --text-light: #f1f5f9;      /* Texte clair */
+    --text-dark: #0f172a;       /* Texte sombre */
 }
 
-/* Reset et styles de base */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Sora', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--secondary-bg);
     line-height: 1.6;
-    color: #333;
-    background-color: var(--light-bg);
-    padding-top: 60px;
 }
 
 /* Navigation */
 .nav-bar {
-    background-color: var(--dark-bg);
-    padding: 1rem;
+    background-color: var(--primary-bg);
+    padding: 1rem 2rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+}
+
+.logo {
+    height: 50px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .nav-button {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -46,18 +60,41 @@ body {
 }
 
 .nav-button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--accent-blue);
 }
 
-.logo {
+.nav-button.active {
+    background-color: var(--accent-blue);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-bg);
+    color: var(--text-light);
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.french-tech-logo {
     height: 40px;
-    margin-right: 2rem;
+    margin-bottom: 1rem;
 }
 
-/* Conteneurs */
+/* Content */
 .content {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 80px auto 100px;
     padding: 20px;
 }
 
@@ -68,16 +105,3 @@ body {
     padding: 20px;
     margin-bottom: 20px;
 }
-
-/* Footer */
-.footer {
-    background-color: var(--dark-bg);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Autres styles existants... */
