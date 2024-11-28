@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+# templates.py
+
+# Structure HTML de base
+HTML_HEAD = '''<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +10,10 @@
     <link rel="stylesheet" href="/visualisations/assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head><body>
+</head>'''
+
+# Navigation principale
+NAVIGATION = '''
 <header>
     <nav class="nav-bar">
         <a href="/visualisations/"><img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo"></a>
@@ -19,7 +25,10 @@
             <a href="/visualisations/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
         </div>
     </nav>
-</header><main class="content">
+</header>'''
+
+# Section service architecture
+SERVICE_ARCHITECTURE = '''
 <div class="analytics-card">
     <h1>Service Architecture Overview</h1>
     <div class="section">
@@ -39,7 +48,10 @@
             <li><a href="../visualizations/deployment_pipeline.html">Deployment Pipeline</a></li>
         </ul>
     </div>
-</div>
+</div>'''
+
+# En-tête de la section téléchargement
+DOWNLOAD_HEADER = '''
 <div class="analytics-card">
     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
         <div>
@@ -48,108 +60,63 @@
         </div>
         <i class="fas fa-file-excel" style="color: #3182ce; font-size: 2rem;"></i>
     </div>
-    <div class="download-grid">
+    <div class="download-grid">'''
+
+# Template pour chaque élément de téléchargement
+DOWNLOAD_ITEM_TEMPLATE = '''
     <div class="download-item">
         <div>
-            <p class="file-name">Compta_journaliere.csv</p>
-            <p class="file-message">📊 La compta quotidienne, claire comme de l'eau de roche !</p>
+            <p class="file-name">{name}</p>
+            <p class="file-message">{message}</p>
         </div>
-        <a href="/cleaned_final/Compta_journaliere.csv" download class="download-link">
+        <a href="{path}" download class="download-link">
             <i class="fas fa-download"></i>
         </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">Subsides.csv</p>
-            <p class="file-message">💰 Tous les subsides, bien ordonnés</p>
-        </div>
-        <a href="/cleaned_final/Subsides.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">agency_payroll_cleaned_final.csv</p>
-            <p class="file-message">💼 Paie agence - Tout est carré !</p>
-        </div>
-        <a href="/cleaned_final/agency_payroll_cleaned_final.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">costs_cleaned_final.csv</p>
-            <p class="file-message">📉 Analyse des coûts optimisée</p>
-        </div>
-        <a href="/cleaned_final/costs_cleaned_final.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">franchise_payroll_cleaned_final.csv</p>
-            <p class="file-message">🤝 Paie franchise - Nickel chrome !</p>
-        </div>
-        <a href="/cleaned_final/franchise_payroll_cleaned_final.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">material_pricing_cleaned_final.csv</p>
-            <p class="file-message">🏷️ Prix matériaux actualisés</p>
-        </div>
-        <a href="/cleaned_final/material_pricing_cleaned_final.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">services_cleaned_final.csv</p>
-            <p class="file-message">🛠️ Services alignés et vérifiés</p>
-        </div>
-        <a href="/cleaned_final/services_cleaned_final.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div>
-    <div class="download-item">
-        <div>
-            <p class="file-name">tax_credit_with_APE.csv</p>
-            <p class="file-message">✨ Crédits d'impôt avec codes APE</p>
-        </div>
-        <a href="/cleaned_final/tax_credit_with_APE.csv" download class="download-link">
-            <i class="fas fa-download"></i>
-        </a>
-    </div></div>
+    </div>'''
+
+# Document officiel template
+OFFICIAL_DOC_TEMPLATE = '''
 <div class="official-doc">
     <h3>Documents Officiels</h3>
-    <a href="https://acrobat.adobe.com/id/urn:aaid:sc:eu:0f7beab6-c206-42c3-a9b5-b2488c7a2067" target="_blank" rel="noopener noreferrer" class="doc-link">
+    <a href="{pdf_link}" target="_blank" rel="noopener noreferrer" class="doc-link">
         <div>
-            <p class="doc-title">Rapport de Subvention 2024</p>
-            <p class="doc-desc">📑 Document officiel des subventions accordées</p>
+            <p class="doc-title">{pdf_title}</p>
+            <p class="doc-desc">{pdf_desc}</p>
         </div>
         <i class="fas fa-file-pdf"></i>
     </a>
-</div>
+</div>'''
+
+# Template pour le disclaimer
+DISCLAIMER_TEMPLATE = '''
 <div class="disclaimer-section">
-    <h3><i class="fas fa-scale-balanced"></i> LEX | LIBERTAS | CIVIS</h3>
+    <h3><i class="fas fa-scale-balanced"></i> {title}</h3>
     <div class="disclaimer-content">
-        <p>Notre engagement envers la transparence et l'intérêt public guide chacune de nos actions. Bien que notre plateforme traite des données variables en constante évolution, notre mission demeure immuable : servir la communauté avec intégrité et précision.</p>
-        <p>Ce projet, porté par des valeurs communautaires fortes et un engagement envers l'intérêt public, représente plus qu'une simple analyse de données. Il incarne notre vision d'une société où la technologie sert le bien commun.</p>
-        <p class="disclaimer-motto">En perpétuel mouvement, mais ancrés dans nos valeurs.</p>
+        <p>{text_1}</p>
+        <p>{text_2}</p>
+        <p class="disclaimer-motto">{motto}</p>
     </div>
-</div>
+</div>'''
+
+# Template pour la section messages
+MESSAGES_TEMPLATE = '''
 <div class="message-section">
     <p class="message-title">🎯 Message pour MAI Expert</p>
-    <p class="message-content">Données nettoyées et structurées selon vos besoins. Les codes APE sont vérifiés et les calculs automatisés sont prêts pour l'analyse fiscale !</p>
+    <p class="message-content">{mai_message}</p>
     
     <p class="message-title">🎩 Message pour Doug's</p>
-    <p class="message-content">La compta est plus propre qu'un sou neuf ! Tous les fichiers sont harmonisés et les subsides sont tracés jusqu'au centime. Le rapport de subvention est disponible en PDF. Bonne analyse !</p>
-</div></div></main>
+    <p class="message-content">{doug_message}</p>
+</div>'''
+
+# Footer template
+FOOTER_TEMPLATE = '''
 <footer class="footer">
     <img src="/visualisations/assets/logo/Logo French Tech.png" alt="French Tech" class="footer-logo">
     <p class="footer-text">&copy; 2024 EHADS Dashboard. Tous droits réservés.</p>
-</footer>
+</footer>'''
+
+# Styles CSS
+STYLES = '''
 <style>
     .download-grid {
         display: grid;
@@ -234,6 +201,9 @@
         font-size: 1.2rem !important;
         margin-top: 1.5rem;
     }
-</style>
+</style>'''
+
+# Structure de fermeture HTML
+HTML_CLOSING = '''
     </body>
-</html>
+</html>'''
