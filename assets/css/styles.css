@@ -108,6 +108,12 @@ body {
     margin-bottom: 24px;
 }
 
+/* Logo styling */
+.logo {
+    height: 100px; /* Ajustez cette valeur selon vos besoins */
+    width: auto;
+}
+
 /* Phase Sections */
 .phase-section {
     border-left: 4px solid #ac2bac;
