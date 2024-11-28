@@ -3,140 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EHADS Dashboard</title>
-    <link rel="stylesheet" href="/visualisations/assets/css/styles.css">
+    <title>EHADS Dashboard - Cost Analysis</title>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/visualisations/assets/css/styles.css">
 </head>
 <body>
-    <header>
-        <nav class="nav-bar">
-            <a href="/visualisations/"><img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo"></a>
-            <div class="nav-links">
-                <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
-                <a href="/visualisations/html_files/pages/cost_analysis.html" class="nav-button">Cost Analysis</a>
-                <a href="/visualisations/html_files/pages/subsidies_analysis.html" class="nav-button">Subsidies Analysis</a>
-                <a href="/visualisations/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
-                <a href="/visualisations/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
-            </div>
-        </nav>
-    </header>
+    <nav class="nav-bar">
+        <a href="/visualisations/">
+            <img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
+            <a href="/visualisations/html_files/pages/cost_analysis.html" class="nav-button active">Cost Analysis</a>
+            <a href="/visualisations/html_files/pages/subsidies_analysis.html" class="nav-button">Subsidies Analysis</a>
+            <a href="/visualisations/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
+            <a href="/visualisations/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
+        </div>
+    </nav>
+
     <main class="content">
-        <main class="content">
-        <div class="page-container" id="cost_analysis.html">
-            <div class="analytics-card">
-                <h2>Cost Analysis</h2>
-                <p>Financial Flux and Cost Hierarchy Analysis</p>
-                <div class="metric-container">
-                    <div class="metric-card">
-                        <div class="metric-header">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <h3>Cost Efficiency</h3>
-                        </div>
-                        <div class="metric-value">88%</div>
-                        <div class="metric-trend">
-                            <span class="trend-indicator" style="color: green">
-                                ↑ +3%
-                            </span>
+        <!-- Header Analytics Card -->
+        <div class="analytics-card">
+            <h1>Cost Analysis</h1>
+            <p>Financial Flux and Cost Hierarchy Analysis</p>
+
+            <div class="metric-container">
+                <div class="metric-card">
+                    <h3>Cost Efficiency</h3>
+                    <div class="metric-value">88%</div>
+                    <div class="trend-positive">↑ +3%</div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Expense Trends</h3>
+                    <div class="metric-value">+5%</div>
+                    <div class="trend-positive" style="color: #ef4444;">↓ -1%</div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Investment Returns</h3>
+                    <div class="metric-value">12%</div>
+                    <div class="trend-positive">↑ +2%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Structure des Coûts -->
+        <div class="analytics-card">
+            <h2>Structure Prévisionnelle des Coûts</h2>
+            
+            <div class="phase-section">
+                <h2>Répartition des Coûts</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3 class="city-name">Coûts Fixes</h3>
+                        <div class="hub-title">Structure de Base</div>
+                        <div class="city-content">
+                            <div class="metric-value">45%</div>
+                            <ul>
+                                <li>Infrastructure</li>
+                                <li>Salaires</li>
+                                <li>Charges fixes</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="metric-card">
-                        <div class="metric-header">
-                            <i class="fas fa-chart-area"></i>
-                            <h3>Expense Trends</h3>
-                        </div>
-                        <div class="metric-value">+5%</div>
-                        <div class="metric-trend">
-                            <span class="trend-indicator" style="color: red">
-                                ↓ -1%
-                            </span>
+                    <div class="grid-item">
+                        <h3 class="city-name">Coûts Variables</h3>
+                        <div class="hub-title">Opérations</div>
+                        <div class="city-content">
+                            <div class="metric-value">35%</div>
+                            <ul>
+                                <li>Consommables</li>
+                                <li>Services externes</li>
+                                <li>Maintenance</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="metric-card">
-                        <div class="metric-header">
-                            <i class="fas fa-piggy-bank"></i>
-                            <h3>Investment Returns</h3>
-                        </div>
-                        <div class="metric-value">12%</div>
-                        <div class="metric-trend">
-                            <span class="trend-indicator" style="color: green">
-                                ↑ +2%
-                            </span>
+                    <div class="grid-item">
+                        <h3 class="city-name">Investissements R&D</h3>
+                        <div class="hub-title">Innovation</div>
+                        <div class="city-content">
+                            <div class="metric-value">20%</div>
+                            <ul>
+                                <li>Recherche</li>
+                                <li>Développement</li>
+                                <li>Formation</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="analytics-card">
-                <h3>Prévision de la Structure Financière</h3>
-
-                <div class="section">
-                    <h4>Structure Prévisionnelle des Coûts</h4>
-                    <ul>
-                        <li>Coûts Fixes: <span class="data-highlight">45%</span></li>
-                        <li>Coûts Variables: <span class="data-highlight">35%</span></li>
-                        <li>Investissements R&D: <span class="data-highlight">20%</span></li>
-                    </ul>
-                </div>
-
-                <div class="visual-content">
-                    <h4>Projection des Flux Financiers</h4>
+            <!-- Visualisation -->
+            <div class="phase-section">
+                <h2>Projection des Flux Financiers</h2>
+                <div class="viz-container">
                     <iframe src="../visualizations/flux_financiers_enhanced.html" style="width:100%; height:800px; border:none;"></iframe>
                 </div>
+            </div>
+        </div>
 
-                <div class="highlight">
-                    <h4>Axes d'Optimisation Prévus</h4>
-                    <ul>
-                        <li>Automatisation: réduction des coûts opérationnels de <span class="amount">15%</span></li>
-                        <li>Économies d'échelle: amélioration de l'efficacité de <span class="amount">25%</span></li>
-                    </ul>
-                </div>
+        <!-- Plan d'Optimisation -->
+        <div class="analytics-card">
+            <h2>Plan d'Optimisation Prévisionnel</h2>
 
-                <div class="recommendation">
-                    <h2>💡 Plan d'Optimisation Prévisionnel</h2>
-
-                    <h3>Actions Immédiates (0-3 mois)</h3>
-                    <ul>
-                        <li>Regrouper les licences Adobe en pack entreprise</li>
-                        <li>Optimiser les instances AWS pour réduire les coûts</li>
-                        <li>Négocier des remises avec les fournisseurs stratégiques</li>
-                    </ul>
-
-                    <h3>Actions à Moyen Terme (3-6 mois)</h3>
-                    <ul>
-                        <li>Maximiser les avantages du statut JEI</li>
-                        <li>Explorer les subventions régionales et locales</li>
-                        <li>Planifier les prochains investissements matériels</li>
-                    </ul>
-
-                    <h3>Stratégie Long Terme (6-12 mois)</h3>
-                    <ul>
-                        <li>Anticiper le renouvellement des infrastructures matérielles</li>
-                        <li>Préparer la transition post-JEI</li>
-                        <li>Développer de nouvelles sources de revenus</li>
-                    </ul>
+            <div class="phase-section">
+                <h2>Actions Immédiates (0-3 mois)</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="hub-title">Optimisations Rapides</div>
+                        <div class="city-content">
+                            <ul>
+                                <li>Regrouper les licences Adobe en pack entreprise</li>
+                                <li>Optimiser les instances AWS pour réduire les coûts</li>
+                                <li>Négocier des remises avec les fournisseurs stratégiques</li>
+                            </ul>
+                            <div class="metric-label">Impact estimé: 15% de réduction</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="analytics-card">
-                <h3>Projection de Répartition des Coûts</h3>
-                <div class="visual-content">
-                    <iframe src="../visualizations/cost_hierarchy.html" style="width:100%; height:800px; border:none;"></iframe>
+            <div class="phase-section" style="border-color: #2bc48a;">
+                <h2>Actions à Moyen Terme (3-6 mois)</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="hub-title">Stratégies Fiscales</div>
+                        <div class="city-content">
+                            <ul>
+                                <li>Maximiser les avantages du statut JEI</li>
+                                <li>Explorer les subventions régionales et locales</li>
+                                <li>Planifier les prochains investissements matériels</li>
+                            </ul>
+                            <div class="metric-label">Impact estimé: 25% d'amélioration</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="analytics-card">
-                <h3>Résumé Financier</h3>
-                <p>
-                    Nos efforts d'optimisation visent à maintenir une structure de coûts saine tout en exploitant 
-                    les opportunités fiscales et de subvention disponibles. En combinant ces initiatives, 
-                    nous projetons une réduction des coûts et une rentabilité accrue sur l'ensemble des segments.
-                </p>
+            <div class="phase-section" style="border-color: #0066cc;">
+                <h2>Stratégie Long Terme (6-12 mois)</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="hub-title">Développement Futur</div>
+                        <div class="city-content">
+                            <ul>
+                                <li>Anticiper le renouvellement des infrastructures</li>
+                                <li>Préparer la transition post-JEI</li>
+                                <li>Développer de nouvelles sources de revenus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Hierarchy Visualization -->
+        <div class="analytics-card">
+            <h2>Projection de Répartition des Coûts</h2>
+            <div class="viz-container">
+                <iframe src="../visualizations/cost_hierarchy.html" style="width:100%; height:800px; border:none;"></iframe>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="analytics-card">
+            <h2>Résumé Financier</h2>
+            <div class="phase-section">
+                <div class="grid-item">
+                    <div class="city-content">
+                        <p>Nos efforts d'optimisation visent à maintenir une structure de coûts saine tout en exploitant 
+                        les opportunités fiscales et de subvention disponibles. En combinant ces initiatives, 
+                        nous projetons une réduction des coûts et une rentabilité accrue sur l'ensemble des segments.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    </main>
+
     <footer class="footer">
         <img src="/visualisations/assets/logo/Logo French Tech.png" alt="French Tech" class="footer-logo">
         <p class="footer-text">&copy; 2024 EHADS Dashboard. Tous droits réservés.</p>
