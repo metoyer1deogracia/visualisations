@@ -1,48 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
 
-    <!DOCTYPE html>
-    <html>
     <head>
-        <title>Flux Financiers - Visualisation Interactive</title>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <style>
-            /* Votre style CSS ici */
-            :root {
-                --primary-color: #2F4F4F;
-                --background-gradient-1: #f5f7fa;
-                --background-gradient-2: #c3cfe2;
-                --panel-background: rgba(255, 255, 255, 0.95);
-                --shadow-color: rgba(0,0,0,0.1);
-            }
-            
-            body {
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(135deg, var(--background-gradient-1) 0%, var(--background-gradient-2) 100%);
-                font-family: 'Sora', sans-serif;
-                min-height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-            }
-
-            .container {
-                width: 100%;
-                max-width: 1200px;
-                margin: 20px;
-                background-color: var(--panel-background);
-                padding: 20px;
-                border-radius: 15px;
-                box-shadow: 0 8px 32px var(--shadow-color);
-                backdrop-filter: blur(10px);
-            }
-
-            /* ... (reste de votre style CSS) ... */
-        </style>
+        <title>EHADS Dashboard - Flux Financiers - Visualisation Interactive</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="icon" type="image/svg+xml" href="/logo/ehads_logo.svg">
     </head>
-    <body>
+    
+<body>
+    
+    <header>
+        <nav class="nav-bar">
+            <a href="/"><img src="/logo/ehads_logo.svg" alt="Logo" class="logo" title="Dashboard Analytics"></a>
+            <a href="/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
+            <a href="/html_files/pages/cost_analysis.html" class="nav-button">Cost Analysis</a>
+            <a href="/html_files/pages/subsidies_analysis.html" class="nav-button">Subsidies Analysis</a>
+            <a href="/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
+            <a href="/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
+        </nav>
+    </header>
+    
+    <main class="content">
         <div class="container">
             <div class="info-panel">
                 <h3>🔍 Guide de lecture interactif</h3>
@@ -75,6 +55,13 @@
                 });
             });
         </script>
-    </body>
-    </html>
+    </main>
     
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 EHADS Dashboard. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
