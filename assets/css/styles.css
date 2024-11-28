@@ -108,6 +108,25 @@ body {
     margin-bottom: 24px;
 }
 
+/* Logo styling */
+.logo {
+    height: 45px;
+    width: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* Phase Sections */
 .phase-section {
     border-left: 4px solid #ac2bac;
