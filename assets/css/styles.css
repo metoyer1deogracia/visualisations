@@ -1,107 +1,94 @@
-/* Variables globales */
-:root {
-    --primary-bg: #1e293b;      /* Fond de navigation sombre */
-    --secondary-bg: #f8fafc;    /* Fond clair */
-    --accent-blue: #3b82f6;     /* Bleu accent */
-    --text-light: #f1f5f9;      /* Texte clair */
-    --text-dark: #0f172a;       /* Texte sombre */
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Sora', sans-serif;
-}
-
-body {
-    background-color: var(--secondary-bg);
-    line-height: 1.6;
-}
-
-/* Navigation */
-.nav-bar {
-    background-color: var(--primary-bg);
-    padding: 1rem 2rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.logo {
-    height: 50px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+    :root {
+        --primary-bg: #1e293b;
+        --secondary-bg: #f8fafc;
+        --accent-blue: #3b82f6;
+        --text-light: #f1f5f9;
+        --text-dark: #0f172a;
     }
-    50% {
-        transform: scale(1.05);
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Sora', sans-serif;
     }
-    100% {
-        transform: scale(1);
+
+    body {
+        background-color: var(--secondary-bg);
+        line-height: 1.6;
+        padding-top: 60px;
     }
-}
 
-.nav-button {
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
+    .nav-bar {
+        background-color: var(--primary-bg);
+        padding: 1rem 2rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
 
-.nav-button:hover {
-    background-color: var(--accent-blue);
-}
+    .logo {
+        height: 50px;
+        animation: pulse 2s infinite;
+    }
 
-.nav-button.active {
-    background-color: var(--accent-blue);
-}
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
 
-/* Footer */
-.footer {
-    background-color: var(--primary-bg);
-    color: var(--text-light);
-    padding: 2rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    .french-tech-logo {
+        height: 40px;
+        margin-bottom: 1rem;
+    }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
+    .nav-button {
+        color: var(--text-light);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
 
-.french-tech-logo {
-    height: 40px;
-    margin-bottom: 1rem;
-}
+    .nav-button:hover {
+        background-color: var(--accent-blue);
+    }
 
-/* Content */
-.content {
-    max-width: 1200px;
-    margin: 80px auto 100px;
-    padding: 20px;
-}
+    .footer {
+        background-color: var(--primary-bg);
+        color: var(--text-light);
+        padding: 2rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 
-.analytics-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-}
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .content {
+        max-width: 1200px;
+        margin: 80px auto 100px;
+        padding: 20px;
+    }
+
+    .analytics-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
