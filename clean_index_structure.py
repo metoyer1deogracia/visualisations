@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+import os
+import re
+
+def clean_index_first():
+    """Nettoie d'abord l'index.html pour en faire une référence"""
+    clean_content = '''<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -50,4 +55,66 @@
         </div>
     </footer>
 </body>
-</html>
+</html>'''
+
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(clean_content)
+    print("✅ Index.html nettoyé et standardisé")
+
+def clean_other_files(file_path):
+    """Nettoie les autres fichiers HTML en utilisant la même structure"""
+    if file_path == 'index.html':
+        return
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Extraire le contenu principal uniquement (entre <main> et </main>)
+        main_content = re.search(r'<main.*?</main>', content, re.DOTALL)
+        if main_content:
+            main_content = main_content.group(0)
+            # Nettoyer les balises main multiples si présentes
+            main_content = re.sub(r'<main.*?<main', '<main', main_content, flags=re.DOTALL)
+            main_content = re.sub(r'</main>.*?</main>', '</main>', main_content, flags=re.DOTALL)
+        else:
+            main_content = "<main class='content'></main>"
+
+        # Utiliser la même structure que index.html
+        with open('index.html', 'r', encoding='utf-8') as f:
+            template = f.read()
+
+        # Remplacer le main du template par le main du fichier actuel
+        new_content = re.sub(
+            r'<main.*?</main>',
+            main_content,
+            template,
+            flags=re.DOTALL
+        )
+
+        # Écrire le fichier nettoyé
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+
+        print(f"✅ Nettoyé : {file_path}")
+    
+    except Exception as e:
+        print(f"❌ Erreur lors du nettoyage de {file_path}: {str(e)}")
+
+def main():
+    print("🧹 Début du nettoyage des fichiers HTML...")
+    
+    # D'abord nettoyer index.html
+    clean_index_first()
+    
+    # Puis nettoyer tous les autres fichiers HTML
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                clean_other_files(file_path)
+    
+    print("\n✨ Nettoyage terminé !")
+
+if __name__ == "__main__":
+    main()
