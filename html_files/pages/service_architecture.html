@@ -12,7 +12,7 @@
         <nav class="nav-bar">
             <a href="/visualisations/"><img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo"></a>
             <div class="nav-links">
-                <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
+                <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button active">Service Architecture</a>
                 <a href="/visualisations/html_files/pages/cost_analysis.html" class="nav-button">Cost Analysis</a>
                 <a href="/visualisations/html_files/pages/subsidies_analysis.html" class="nav-button">Subsidies Analysis</a>
                 <a href="/visualisations/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
@@ -22,50 +22,121 @@
     </header>
     <main class="content">
         <main class="content">
-        <h1>Service Architecture</h1>
-        <p>Explore the architecture of our services, from core offerings to premium features, visualized hierarchically.</p>
-        
-        <section class="analytics-card">
-            <h2>Service Hierarchy Overview</h2>
-            <div class="metric-container">
-                <div class="metric-card">
-                    <div class="metric-header">
-                        <i class="fas fa-layer-group"></i>
-                        <h3>Core Services</h3>
+            <div class="page-container" id="service_architecture">
+                <div class="analytics-card">
+                    <h2>Service Architecture</h2>
+                    <p>Service Platform and Architecture Analysis</p>
+                    <div class="metric-container">
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-layer-group"></i>
+                                <h3>Core Services</h3>
+                            </div>
+                            <div class="metric-value">8 Services</div>
+                            <div class="metric-trend">
+                                <span class="trend-indicator" style="color: green">
+                                    ↑ Complete
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-star"></i>
+                                <h3>Premium Services</h3>
+                            </div>
+                            <div class="metric-value">12 Services</div>
+                            <div class="metric-trend">
+                                <span class="trend-indicator" style="color: green">
+                                    ↑ +2 New
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <i class="fas fa-building"></i>
+                                <h3>Enterprise Services</h3>
+                            </div>
+                            <div class="metric-value">5 Services</div>
+                            <div class="metric-trend">
+                                <span class="trend-indicator" style="color: green">
+                                    ↑ In Development
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric-value">8 Services</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-header">
-                        <i class="fas fa-star"></i>
-                        <h3>Premium Services</h3>
+
+                <div class="analytics-card">
+                    <h3>Service Platform Architecture</h3>
+
+                    <div class="section">
+                        <h4>Service Structure</h4>
+                        <ul>
+                            <li>Microservices: <span class="data-highlight">15</span></li>
+                            <li>API Endpoints: <span class="data-highlight">45</span></li>
+                            <li>Integration Points: <span class="data-highlight">28</span></li>
+                        </ul>
                     </div>
-                    <div class="metric-value">12 Services</div>
+
+                    <div class="visual-content">
+                        <h4>Service Hierarchy</h4>
+                        <iframe src="../visualizations/service_hierarchy.html" style="width:100%; height:800px; border:none;"></iframe>
+                    </div>
+
+                    <div class="highlight">
+                        <h4>Key Performance Indicators</h4>
+                        <ul>
+                            <li><strong>Inter-service Dependencies:</strong> Optimal for scalability and seamless integration</li>
+                            <li><strong>Pricing Elasticity:</strong> Differentiated pricing tiers drive engagement</li>
+                            <li><strong>Customer Retention:</strong> 85% retention through tailored solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation">
+                        <h2>💡 Architecture Strategy</h2>
+
+                        <h3>Immediate Focus (Q1 2024)</h3>
+                        <ul>
+                            <li>API Gateway Optimization</li>
+                            <li>Service Mesh Implementation</li>
+                            <li>Load Balancing Enhancement</li>
+                        </ul>
+
+                        <h3>Mid-term Goals (Q2-Q3 2024)</h3>
+                        <ul>
+                            <li>Microservices Expansion</li>
+                            <li>Security Framework Update</li>
+                            <li>Performance Monitoring Upgrade</li>
+                        </ul>
+
+                        <h3>Long-term Vision (Q4 2024+)</h3>
+                        <ul>
+                            <li>Enterprise Integration Framework</li>
+                            <li>Global Service Distribution</li>
+                            <li>AI/ML Service Integration</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-header">
-                        <i class="fas fa-building"></i>
-                        <h3>Enterprise Services</h3>
+
+                <div class="analytics-card">
+                    <h3>Infrastructure Overview</h3>
+                    <div class="visual-content">
+                        <iframe src="../visualizations/infrastructure_layout.html" style="width:100%; height:800px; border:none;"></iframe>
                     </div>
-                    <div class="metric-value">5 Services</div>
+                </div>
+
+                <div class="analytics-card">
+                    <h3>Summary</h3>
+                    <p>
+                        Our service architecture is designed for scalability and reliability, 
+                        with a focus on microservices and API-first design. The current structure 
+                        supports both rapid development and stable enterprise-grade deployments.
+                    </p>
                 </div>
             </div>
-        </section>
-
-        <section class="visual-content">
-            <h2>Visual Representation of Service Hierarchy</h2>
-            <iframe src="../visualizations/service_hierarchy.html" style="width:100%; height:800px; border:none;"></iframe>
-        </section>
-
-        <section class="highlight">
-            <h2>Key Insights</h2>
-            <ul>
-                <li><strong>Inter-service Dependencies:</strong> Optimal for scalability and seamless integration.</li>
-                <li><strong>Pricing Elasticity:</strong> Differentiated pricing tiers drive engagement across segments.</li>
-                <li><strong>Customer Retention:</strong> 85% retention achieved through tailored solutions.</li>
-            </ul>
-        </section>
-    </main>
+        </main>
     </main>
     <footer class="footer">
         <img src="/visualisations/assets/logo/Logo French Tech.png" alt="French Tech" class="footer-logo">
