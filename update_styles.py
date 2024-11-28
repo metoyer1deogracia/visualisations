@@ -1,10 +1,11 @@
 import os
 from pathlib import Path
 
-def create_css_content():
-    return """/* Variables Globales */
+def create_styles():
+    """Crée le fichier CSS avec tous les styles standardisés"""
+    css_content = """
 :root {
-    --primary-dark: #1e293b;
+    --primary-dark: #dbeafe;
     --primary-light: #f8fafc;
     --accent-blue: #3b82f6;
     --success-green: #22c55e;
@@ -16,12 +17,12 @@ def create_css_content():
     --padding-card: 1.5rem;
 }
 
-/* Base et Typographie */
+/* Base styles */
 body {
     font-family: 'Sora', sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--primary-light);
+    background: var(--primary-light);
     margin: 0;
     padding-top: 60px;
 }
@@ -36,6 +37,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    box-sizing: border-box;
     z-index: 1000;
 }
 
@@ -95,8 +97,15 @@ body {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
-    padding: var(--padding-card);
+    padding: 2rem;
     margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
 /* Themed Sections */
@@ -118,8 +127,13 @@ body {
     margin: 2rem 0;
     border-radius: var(--border-radius);
     overflow: hidden;
+}
+
+.viz-header {
     background: var(--primary-dark);
-    padding: 1.5rem;
+    color: white;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Lists */
@@ -137,11 +151,17 @@ body {
     padding: 0.5rem 0;
 }
 
+.key-point::before {
+    content: "•";
+    color: var(--accent-blue);
+}
+
 /* Footer */
 .footer {
     background: var(--primary-dark);
     padding: 1.5rem;
-    margin-top: 2rem;
+    color: white;
+    margin-top: 3rem;
 }
 
 .logo-container {
@@ -152,56 +172,61 @@ body {
 }
 
 .footer-text {
-    color: white;
     text-align: center;
     font-size: 0.875rem;
 }
 
-/* Grids */
+/* Grid Layouts */
 .location-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
 
-/* Hub Banner */
 .hub-banner {
     background: #dbeafe;
     color: #1e40af;
     padding: 0.5rem;
-    border-radius: var(--border-radius);
-}
-
-/* Phase Indicator */
-.phase {
-    border-left: 4px solid #818cf8;
-    padding-left: 1rem;
+    border-radius: 4px;
 }
 """
-
-def update_css_file():
-    css_dir = Path('assets/css')
-    css_dir.mkdir(parents=True, exist_ok=True)
     
-    css_file = css_dir / 'styles.css'
-    with open(css_file, 'w', encoding='utf-8') as f:
-        f.write(create_css_content())
-    print(f"✅ Fichier CSS mis à jour : {css_file}")
+    with open('assets/css/styles.css', 'w', encoding='utf-8') as f:
+        f.write(css_content)
+    print("✅ Styles CSS créés")
 
-def verify_html_files():
-    """Vérifie que tous les fichiers HTML ont le bon lien CSS"""
-    for html_file in Path('.').rglob('*.html'):
-        with open(html_file, 'r', encoding='utf-8') as f:
-            content = f.read()
+def update_html_files():
+    """Met à jour tous les fichiers HTML pour utiliser les nouveaux styles"""
+    html_files = Path('.').rglob('*.html')
+    
+    for file_path in html_files:
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Ajouter les classes appropriées
+            content = content.replace('<div class="metric-card">', '<div class="metric-card">')
+            content = content.replace('<div class="analytics-card">', '<div class="analytics-card">')
+            content = content.replace('<div class="themed-section">', '<div class="themed-section">')
+            
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
+            print(f"✅ Mis à jour : {file_path}")
         
-        if '<link rel="stylesheet" href="/visualisations/assets/css/styles.css">' not in content:
-            print(f"⚠️ Attention : {html_file} pourrait avoir un mauvais lien CSS")
+        except Exception as e:
+            print(f"❌ Erreur lors de la mise à jour de {file_path}: {str(e)}")
 
 def main():
-    print("🎨 Mise à jour des styles...")
-    update_css_file()
-    verify_html_files()
-    print("\n✨ Styles mis à jour avec succès !")
+    print("🎨 Début de la mise à jour des styles...")
+    
+    # Créer les styles CSS
+    create_styles()
+    
+    # Mettre à jour les fichiers HTML
+    update_html_files()
+    
+    print("\n✨ Mise à jour des styles terminée !")
 
 if __name__ == "__main__":
     main()

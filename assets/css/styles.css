@@ -1,6 +1,6 @@
-/* Variables Globales */
+
 :root {
-    --primary-dark: #1e293b;
+    --primary-dark: #dbeafe;
     --primary-light: #f8fafc;
     --accent-blue: #3b82f6;
     --success-green: #22c55e;
@@ -12,12 +12,12 @@
     --padding-card: 1.5rem;
 }
 
-/* Base et Typographie */
+/* Base styles */
 body {
     font-family: 'Sora', sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--primary-light);
+    background: var(--primary-light);
     margin: 0;
     padding-top: 60px;
 }
@@ -32,6 +32,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    box-sizing: border-box;
     z-index: 1000;
 }
 
@@ -91,8 +92,15 @@ body {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
-    padding: var(--padding-card);
+    padding: 2rem;
     margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
 /* Themed Sections */
@@ -114,8 +122,13 @@ body {
     margin: 2rem 0;
     border-radius: var(--border-radius);
     overflow: hidden;
+}
+
+.viz-header {
     background: var(--primary-dark);
-    padding: 1.5rem;
+    color: white;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Lists */
@@ -133,11 +146,17 @@ body {
     padding: 0.5rem 0;
 }
 
+.key-point::before {
+    content: "•";
+    color: var(--accent-blue);
+}
+
 /* Footer */
 .footer {
     background: var(--primary-dark);
     padding: 1.5rem;
-    margin-top: 2rem;
+    color: white;
+    margin-top: 3rem;
 }
 
 .logo-container {
@@ -148,28 +167,20 @@ body {
 }
 
 .footer-text {
-    color: white;
     text-align: center;
     font-size: 0.875rem;
 }
 
-/* Grids */
+/* Grid Layouts */
 .location-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
 
-/* Hub Banner */
 .hub-banner {
     background: #dbeafe;
     color: #1e40af;
     padding: 0.5rem;
-    border-radius: var(--border-radius);
-}
-
-/* Phase Indicator */
-.phase {
-    border-left: 4px solid #818cf8;
-    padding-left: 1rem;
+    border-radius: 4px;
 }
