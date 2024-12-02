@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <!-- Section Répartition par Secteur -->
+            <!-- Section Répartition par Secteur avec iframes côte à côte -->
             <div class="analytics-card">
                 <h3>Répartition par Secteur</h3>
                 <div class="section">
@@ -143,12 +143,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Nouvelle section dédiée pour les iframes côte à côte -->
+            <div class="analytics-card" style="width: 100%;">
+                <h3>Alternatives de Subventions</h3>
                 <div class="section">
-                    <h4>Alternatives de Subventions</h4>
-                    <div class="viz-container">
-                        <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_1.html" style="width:100%; height:800px; border:none;"></iframe>
-                        <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_2.html" style="width:100%; height:800px; border:none;"></iframe>
+                    <div style="display: flex; gap: 20px; width: 100%;">
+                        <div style="flex: 1;">
+                            <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_1.html" style="width:100%; height:800px; border:none;"></iframe>
+                        </div>
+                        <div style="flex: 1;">
+                            <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_2.html" style="width:100%; height:800px; border:none;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
