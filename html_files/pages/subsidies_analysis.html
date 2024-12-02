@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,209 +11,240 @@
     <link rel="shortcut icon" type="image/svg+xml" href="/visualisations/assets/logo/ehads_logo.svg">
 </head>
 <body>
-    <nav class="nav-bar">
-        <a href="/visualisations/"><img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo"></a>
-        <div class="nav-links">
-            <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
-            <a href="/visualisations/html_files/pages/cost_analysis.html" class="nav-button">Cost Analysis</a>
-            <a href="/visualisations/html_files/pages/subsidies_analysis.html" class="nav-button active">Subsidies Analysis</a>
-            <a href="/visualisations/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
-            <a href="/visualisations/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
-        </div>
-    </nav>
+    <header>
+        <nav class="nav-bar">
+            <a href="/visualisations/"><img src="/visualisations/assets/logo/ehads_logo.svg" alt="Logo" class="logo"></a>
+            <div class="nav-links">
+                <a href="/visualisations/html_files/pages/service_architecture.html" class="nav-button">Service Architecture</a>
+                <a href="/visualisations/html_files/pages/cost_analysis.html" class="nav-button">Cost Analysis</a>
+                <a href="/visualisations/html_files/pages/subsidies_analysis.html" class="nav-button active">Subsidies Analysis</a>
+                <a href="/visualisations/html_files/pages/geographic_roadmap.html" class="nav-button">Geographic Roadmap</a>
+                <a href="/visualisations/html_files/pages/terms_and_conditions.html" class="nav-button">Conditions Générales</a>
+            </div>
+        </nav>
+    </header>
 
     <main class="content">
-        <!-- Header Analytics Card -->
-        <div class="analytics-card">
-            <h1>Analyse des Subventions et Aides Disponibles</h1>
-
-            <div class="metric-container">
-                <div class="metric-card">
-                    <h3>Potentiel Total</h3>
-                    <div class="metric-value">1M€+</div>
-                    <div class="trend-positive">↑ Cumulé</div>
-                </div>
-                <div class="metric-card">
-                    <h3>Délai Moyen</h3>
-                    <div class="metric-value">6</div>
-                    <div class="trend-positive">mois</div>
-                </div>
-                <div class="metric-card">
-                    <h3>Quick Wins</h3>
-                    <div class="metric-value">50K€</div>
-                    <div class="trend-positive">↑ 3 mois</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="analytics-card">
-            <div class="phase-section">
-                <h2>1. Dispositifs Majeurs Immédiats</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <h3>JEI</h3>
-                        <div class="hub-title">Jeune Entreprise Innovante</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Exonération sociale : <span class="metric-value">181 388€</span></li>
-                                <li>Exonération fiscale : <span class="metric-value">53 419€</span></li>
-                                <li>Exonération CFE/CVAE : <span class="metric-value">12 000€</span></li>
-                            </ul>
-                            <div class="metric-label">Difficulté : Moyenne | Délai : 3 mois</div>
+        <div class="page-container" id="subsidies_analysis">
+            <!-- Header Analytics Card -->
+            <div class="analytics-card">
+                <h2>Analyse des Subventions et Aides Disponibles</h2>
+                <p>Gestion et Optimisation des Aides Financières</p>
+                <div class="metric-container">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-euro-sign"></i>
+                            <h3>Potentiel Total</h3>
+                        </div>
+                        <div class="metric-value">1M€+</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ Cumulé
+                            </span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Délai Moyen</h3>
+                        </div>
+                        <div class="metric-value">6</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator">
+                                mois
+                            </span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Quick Wins</h3>
+                        </div>
+                        <div class="metric-value">50K€</div>
+                        <div class="metric-trend">
+                            <span class="trend-indicator" style="color: green">
+                                ↑ 3 mois
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Visualization Section -->
-            <div class="phase-section">
-                <h2>Subventions Principales</h2>
-                <div class="viz-container">
-                    <iframe src="../subsidies/subsidies_heatmap_Code_APE_Source_Principale.html" style="width:100%; height:800px; border:none;"></iframe>
-                </div>
-            </div>
-
-            <div class="phase-section" style="border-color: #2bc48a;">
-                <h2>2. Crédits d'Impôt Stratégiques</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="hub-title">Crédits d'Impôt Recherche et Innovation</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>CIR (Crédit Impôt Recherche) : <span class="metric-value">79 500€</span></li>
-                                <li>CII (Crédit Impôt Innovation) : <span class="metric-value">82 072€</span></li>
-                            </ul>
-                            <div class="metric-label">Attention : Délai long (12 mois) mais montants significatifs</div>
+            <!-- Section JEI -->
+            <div class="analytics-card">
+                <h3>Dispositifs Majeurs Immédiats</h3>
+                <div class="section">
+                    <h4>JEI (Jeune Entreprise Innovante)</h4>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <div class="city-content">
+                                <ul>
+                                    <li>Exonération sociale : <span class="data-highlight">181 388€</span></li>
+                                    <li>Exonération fiscale : <span class="data-highlight">53 419€</span></li>
+                                    <li>Exonération CFE/CVAE : <span class="data-highlight">12 000€</span></li>
+                                </ul>
+                                <div class="metric-label">Difficulté : Moyenne | Délai : 3 mois</div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h4>Subventions Principales</h4>
+                    <div class="viz-container">
+                        <iframe src="../subsidies/subsidies_heatmap_Code_APE_Source_Principale.html" style="width:100%; height:800px; border:none;"></iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="phase-section" style="border-color: #0066cc;">
-                <h2>3. Répartition par Secteur</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <h3>Multimédia et Tech (62.01Z)</h3>
-                        <div class="hub-title">Aides au Développement</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Transformation Numérique : <span class="metric-value">50 000€</span> <span class="easy">(Facile)</span></li>
-                                <li>Développement d'Applications : <span class="metric-value">100 000€</span></li>
-                                <li>Subvention i-Lab : <span class="metric-value">600 000€</span> <span class="hard">(Très Difficile)</span></li>
-                            </ul>
+            <!-- Section Crédits d'Impôt -->
+            <div class="analytics-card">
+                <h3>Crédits d'Impôt Stratégiques</h3>
+                <div class="section">
+                    <h4>Crédits d'Impôt Recherche et Innovation</h4>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <div class="city-content">
+                                <ul>
+                                    <li>CIR (Crédit Impôt Recherche) : <span class="data-highlight">79 500€</span></li>
+                                    <li>CII (Crédit Impôt Innovation) : <span class="data-highlight">82 072€</span></li>
+                                </ul>
+                                <div class="metric-label">Attention : Délai long (12 mois) mais montants significatifs</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="grid-item">
-                        <h3>Production et Divertissement (59.11B)</h3>
-                        <div class="hub-title">Aides à la Création</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Création de Jeux Vidéo : <span class="metric-value">200 000€</span></li>
-                                <li>Fonds de Soutien Innovation : <span class="metric-value">50 000€</span></li>
-                                <li>Contenus Numériques : <span class="metric-value">90 000€</span></li>
-                            </ul>
+                </div>
+            </div>
+
+            <!-- Section Répartition par Secteur -->
+            <div class="analytics-card">
+                <h3>Répartition par Secteur</h3>
+                <div class="section">
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>Multimédia et Tech (62.01Z)</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Transformation Numérique : <span class="data-highlight">50 000€</span> <span class="easy">(Facile)</span></li>
+                                    <li>Développement d'Applications : <span class="data-highlight">100 000€</span></li>
+                                    <li>Subvention i-Lab : <span class="data-highlight">600 000€</span> <span class="hard">(Très Difficile)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Production et Divertissement (59.11B)</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Création de Jeux Vidéo : <span class="data-highlight">200 000€</span></li>
+                                    <li>Fonds de Soutien Innovation : <span class="data-highlight">50 000€</span></li>
+                                    <li>Contenus Numériques : <span class="data-highlight">90 000€</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="viz-container">
+                <div class="section">
                     <h4>Alternatives de Subventions</h4>
-                    <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_1.html" style="width:100%; height:800px; border:none;"></iframe>
-                    <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_2.html" style="width:100%; height:800px; border:none;"></iframe>
-                </div>
-            </div>
-
-            <div class="phase-section">
-                <h2>4. Opportunités "Quick Wins"</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="hub-title">Subventions Rapides</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Pass PI INPI : <span class="metric-value">5 000€</span> (1 mois)</li>
-                                <li>OPCO Formation : <span class="metric-value">15 000€</span> (1 mois)</li>
-                                <li>Aide Unique Apprentissage : <span class="metric-value">30 000€</span> (1 mois)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="hub-title">Impact Financier</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Réduction charges sociales: <span class="metric-value">-35%</span></li>
-                                <li>Économie d'impôts: <span class="metric-value">-25%</span></li>
-                                <li>Subventions directes: <span class="metric-value">488k€</span></li>
-                            </ul>
-                        </div>
+                    <div class="viz-container">
+                        <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_1.html" style="width:100%; height:800px; border:none;"></iframe>
+                        <iframe src="../subsidies/subsidies_heatmap_Delai_Alternative_2.html" style="width:100%; height:800px; border:none;"></iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="phase-section" style="border-color: #2bc48a;">
-                <h2>5. Stratégie de Financement Recommandée</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="hub-title">Court terme (0-3 mois)</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Activer JEI immédiatement : <span class="metric-value">246 807€</span> potentiels</li>
-                                <li>Démarrer OPCO et Pass PI : <span class="metric-value">20 000€</span> rapides</li>
-                            </ul>
+            <!-- Section Quick Wins -->
+            <div class="analytics-card">
+                <h3>Opportunités "Quick Wins"</h3>
+                <div class="section">
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>Subventions Rapides</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Pass PI INPI : <span class="data-highlight">5 000€</span> (1 mois)</li>
+                                    <li>OPCO Formation : <span class="data-highlight">15 000€</span> (1 mois)</li>
+                                    <li>Aide Unique Apprentissage : <span class="data-highlight">30 000€</span> (1 mois)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Impact Financier</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Réduction charges sociales: <span class="data-highlight">-35%</span></li>
+                                    <li>Économie d'impôts: <span class="data-highlight">-25%</span></li>
+                                    <li>Subventions directes: <span class="data-highlight">488k€</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="grid-item">
-                        <div class="hub-title">Moyen terme (3-6 mois)</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Monter dossiers BPI : <span class="metric-value">40 000€ à 100 000€</span></li>
-                                <li>Préparer CIR/CII : <span class="metric-value">161 572€</span> combinés</li>
-                            </ul>
+                </div>
+            </div>
+
+            <!-- Section Stratégie -->
+            <div class="analytics-card">
+                <h3>Stratégie de Financement</h3>
+                <div class="section">
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <h4>Court terme (0-3 mois)</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Activer JEI immédiatement : <span class="data-highlight">246 807€</span> potentiels</li>
+                                    <li>Démarrer OPCO et Pass PI : <span class="data-highlight">20 000€</span> rapides</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="hub-title">Long terme (6-12 mois)</div>
-                        <div class="city-content">
-                            <ul>
-                                <li>Programmes européens : <span class="metric-value">60 000€ à 80 000€</span></li>
-                                <li>Fonds sectoriels CNC : <span class="metric-value">200 000€</span> potentiels</li>
-                            </ul>
+                        <div class="grid-item">
+                            <h4>Moyen terme (3-6 mois)</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Monter dossiers BPI : <span class="data-highlight">40 000€ à 100 000€</span></li>
+                                    <li>Préparer CIR/CII : <span class="data-highlight">161 572€</span> combinés</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <h4>Long terme (6-12 mois)</h4>
+                            <div class="city-content">
+                                <ul>
+                                    <li>Programmes européens : <span class="data-highlight">60 000€ à 80 000€</span></li>
+                                    <li>Fonds sectoriels CNC : <span class="data-highlight">200 000€</span> potentiels</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="viz-container">
+                <div class="section">
                     <h4>Répartition des Financements</h4>
-                    <iframe src="../visualizations/funding_treemap.html" style="width:100%; height:800px; border:none;"></iframe>
-                </div>
-            </div>
-
-            <div class="phase-section">
-                <h2>6. Points d'Attention</h2>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="hub-title">Points Clés</div>
-                        <div class="city-content">
-                            <ul>
-                                <li class="medium">Cumul possible de la plupart des aides</li>
-                                <li class="medium">Plafonnements à respecter (notamment JEI)</li>
-                                <li class="hard">Anticiper les délais longs pour les gros montants</li>
-                                <li class="easy">Privilégier d'abord les aides "faciles"</li>
-                            </ul>
-                        </div>
+                    <div class="viz-container">
+                        <iframe src="../visualizations/funding_treemap.html" style="width:100%; height:800px; border:none;"></iframe>
                     </div>
                 </div>
             </div>
 
-            <div class="phase-section" style="border-color: #0066cc;">
-                <h2>7. Conclusion</h2>
-                <div class="grid-item">
-                    <div class="hub-title">Synthèse</div>
-                    <div class="city-content">
-                        <p>Le potentiel total de subventions accessibles dépasse <span class="metric-value">1 million d'euros</span>. 
+            <!-- Section Points d'Attention -->
+            <div class="analytics-card">
+                <h3>Points Clés et Conclusion</h3>
+                <div class="section">
+                    <h4>Points d'Attention</h4>
+                    <ul>
+                        <li class="medium">Cumul possible de la plupart des aides</li>
+                        <li class="medium">Plafonnements à respecter (notamment JEI)</li>
+                        <li class="hard">Anticiper les délais longs pour les gros montants</li>
+                        <li class="easy">Privilégier d'abord les aides "faciles"</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4>Conclusion</h4>
+                    <p>
+                        Le potentiel total de subventions accessibles dépasse <span class="data-highlight">1 million d'euros</span>. 
                         Une approche structurée, commençant par les dispositifs les plus simples tout en préparant les dossiers plus complexes, 
-                        permettra d'optimiser les chances d'obtention et de maximiser les montants perçus.</p>
-                    </div>
+                        permettra d'optimiser les chances d'obtention et de maximiser les montants perçus.
+                    </p>
                 </div>
             </div>
         </div>
